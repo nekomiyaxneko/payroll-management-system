@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+    <package name="user" namespace="/user" extends="employee-default">
+		<!-- 账户管理 -->
+		<action name="user" class="action.user.UserAction">
+			<result name="update">/user/updateUser.jsp</result>
+			<result name="list" type="redirectAction">
+				list
+			</result>
+			 <result name="error">../error.jsp</result> 
+			 <result name="password_error">/user/addUser.jsp</result>
+		</action>
+		
+		<action name="updatePassword" class="action.user.UpdatePasswordAction">
+			<result name="update">/user/successful.jsp</result>
+			 <result name="password_error">/user/updatePassword.jsp</result>
+			  <result name="newPassword_error">/user/updatePassword.jsp</result>
+		</action>
+		
+		<action name="list"  method="showlist"
+			class="action.user.UserListAction">
+			<param name="pageSize">5</param>
+			<result name="success">/user/userlist.jsp</result>
+			 <result name="error">../error.jsp</result> 
+		</action>
+		<!-- 部门管理 -->
+		<action	name="deptList" method="showlist" 
+				class="action.dept.DeptListAction">
+			<param name="pageSize">5</param>
+			<result name="success">/user/showDept.jsp</result>
+			 <result name="error">/error.jsp</result> 
+		</action>
+		
+		<action name="dept" class="action.dept.DeptAction">
+			<result name="update">/user/detailDept.jsp</result>
+			<result name="list" type="redirectAction">
+				deptList
+			</result>
+			 <result name="error">/error.jsp</result> 
+			 <result name="find">/user/showDept.jsp</result>
+		</action>
+		
+			<action	name="findDept" method="findDept" 
+				class="action.dept.FindDeptAction">
+			<param name="pageSize">5</param>
+			<result name="find">/user/showDept.jsp</result>
+			 <result name="error">/error.jsp</result> 
+		</action>
+		<!-- 员工管理 -->
+		<action	name="empList" method="showlist" 
+				class="action.emp.EmpListAction">
+			<param name="pageSize">5</param>
+			<result name="success">/user/showEmp.jsp</result>
+			 <result name="error">/error.jsp</result> 
+		</action>
+		
+		<action name="showDept" class="action.dept.ShowDeptAction">
+			<result>/user/addEmp.jsp</result>
+		</action>
+		<action name="emp" class="action.emp.EmpAction">
+			<result name="update">/user/detailEmp.jsp</result>
+			<result name="update2">/user/detailInfo.jsp</result>
+			<result name="list" type="redirectAction">
+				empList
+			</result>
+			 <result name="error">/error.jsp</result> 
+		</action>
+		
+			<action	name="findEmp" 
+				class="action.emp.FindEmpAction">
+			<param name="pageSize">5</param>
+			<result name="find">/user/showEmp.jsp</result>
+			 <result name="error">/error.jsp</result> 
+		</action>
+    </package>
+</struts>
+
+
+

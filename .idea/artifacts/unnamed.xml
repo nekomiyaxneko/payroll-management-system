@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="unnamed">
+    <output-path>$PROJECT_DIR$/out/artifacts/unnamed</output-path>
+    <root id="archive" name="unnamed.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="工资管理系统" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

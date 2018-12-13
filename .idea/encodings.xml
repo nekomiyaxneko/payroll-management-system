@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/action/emp/EmpListAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/action/salary/AttendenceListAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/action/user/LoginAction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/dao/JdbcAttendenceDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/dao/JdbcUserDao.java" charset="GBK" />
+  </component>
+</project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>	
+
+	<include file="struts-user.xml"/>
+	<include file="struts-salary.xml"/>
+
+    <package name="employee-default" namespace="/" extends="json-default">
+    	<!-- 获取验证码 -->
+    	<action name="image" class="action.user.ImageCodeAction">
+    		<result name="success" type="stream">
+				<param name="inputName">imageStream</param>
+			</result>
+    	</action>
+    	<!-- 判断验证码是否正确-->
+		<action name="checkcode" class="action.user.CheckNumberAction">
+			<result type="json" name="success">
+				<param name="root">ok</param>
+			</result>
+		</action>
+		<!-- 判断用户名密码是否正确-->
+		<action name="login" class="action.user.LoginAction">
+			<result name="username_error">/login.jsp</result>
+			<result name="password_error">/login.jsp</result>
+			<result  name="success" type="redirect">/index.jsp</result>
+		</action>
+		<!-- 退出登陆-->
+		<action name="logout" class="action.user.LogoutAction">
+			<result name="success" type="redirect">/login.jsp</result>
+		</action>
+    </package>
+	<constant name="struts.action.extension" value="action"></constant> <!-- 只对 对action的请求进行拦截-->
+</struts>

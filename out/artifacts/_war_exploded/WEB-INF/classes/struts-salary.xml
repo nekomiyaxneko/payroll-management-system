@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="salary" namespace="/salary" extends="employee-default">
+
+		<!-- 考勤管理 -->
+		<action name="attendenceList" method="showlist"
+			class="action.salary.AttendenceListAction">
+			<param name="pageSize">5</param>
+			<result name="success">/salary/showAttendence.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="attendence" class="action.salary.AttendenceAction">
+			<result name="update">/salary/detailAttendence.jsp</result>
+			<result name="list" type="redirectAction">
+				attendenceList
+			</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="attendenceSet" class="action.salary.AttendenceSetAction">
+			<result name="update">/salary/attendenceSet.jsp</result>
+			<result name="message">/salary/attendenceSet.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="findAttendence" class="action.salary.FindAttendenceAction">
+			<param name="pageSize">5</param>
+			<result name="find">/salary/showAttendence.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="addAttendences" class="action.salary.AddAttendences">
+			<param name="pageSize">10</param>
+			<result name="add">/salary/showAttendence.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<!-- 工资管理 -->
+		<action name="salaryList" method="showlist"
+			class="action.salary.SalaryListAction">
+			<param name="pageSize">5</param>
+			<result name="success">/salary/showSalary.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="salary" class="action.salary.SalaryAction">
+			<result name="update">/salary/detailSalary.jsp</result>
+			<result name="list" type="redirectAction">
+				salaryList
+			</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="findSalary" class="action.salary.FindSalaryAction">
+			<param name="pageSize">5</param>
+			<result name="find">/salary/showSalary.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="salaryStandardList" class="action.salary.StandardListAction">
+			<param name="pageSize">5</param>
+			<result name="success">/salary/showStandard.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+
+		<action name="salaryStandard" class="action.salary.StandardAction">
+			<result name="update">/salary/detailStandard.jsp</result>
+			<result name="list" type="redirectAction">
+				salaryStandardList
+			</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="addSalarys" class="action.salary.AddSalarys">
+			<param name="pageSize">5</param>
+			<result name="add">/salary/showSalary.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="findStand" class="action.salary.FindStand">
+			<param name="pageSize">5</param>
+			<result name="find">/salary/showStandard.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+		
+		<action name="insurance" class="action.salary.InsuranceAction">
+			<result name="update">/salary/insurance.jsp</result>
+			<result name="message">/salary/insurance.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+	</package>
+</struts>
+
+	
